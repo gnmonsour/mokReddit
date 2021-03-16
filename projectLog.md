@@ -35,3 +35,32 @@ GOTCHA - Avoid side effects in development
 - run watch before other scripts to ensure synchronization to newest change
 
 ---
+
+- added git scm
+- first commit
+
+### Mikro-ORM
+
+- installing mikro-orm
+
+```cmd
+  npm i -S @mikro-orm/cli @mikro-orm/core @mikro-orm/migrations @mikro-orm/postgresql pg
+```
+
+- updated postgresql to 13.2
+- reviewed mikro-orm website, seems to be active and getting ahead of typeorm
+
+- created database on postgresql 'mokreddit' owned by 'postgres'
+
+```sql
+  CREATE ROLE gnm WITH
+    LOGIN
+    NOSUPERUSER
+    CREATEDB
+    CREATEROLE
+    INHERIT
+    NOREPLICATION
+    CONNECTION LIMIT -1
+    PASSWORD 'xxxxxx';
+  COMMENT ON ROLE gnm IS 'this will be the db owner for the mokreddit db';
+```
