@@ -63,4 +63,10 @@ GOTCHA - Avoid side effects in development
 - created successful migration after adjustments in pgAdmin for server port and roles
 - added code to create a post to verify workflow
 
--
+### GraphQL
+
+- installed packages: 'apollo-server-express', 'express', 'graphql', 'type-graphql' and '@types/express'
+- added an express server with simple endpoint for verification
+- added ApolloServer and configured it with 'buildSchema' from 'type-graphql'
+- added a resolver for the schema for a simple setup and verification
+- seeing a lot of decorators
