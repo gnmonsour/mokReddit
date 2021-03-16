@@ -39,28 +39,28 @@ GOTCHA - Avoid side effects in development
 - added git scm
 - first commit
 
+### Postgresql
+
+- updated postgresql to 13.2
+- reviewed mikro-orm website, seems to be active and getting ahead of typeorm
+
+- create role 'gnm' in postgresql server
+- created database on postgresql 'mokreddit' owned by 'gnm'
+- had real difficulties with using server because of port number that was cached for version 12
+- added a port number to the mikro-orm config after updating the port number in pgAdmin
+
+-
+
 ### Mikro-ORM
 
-- installing mikro-orm
+- installed mikro-orm
 
 ```cmd
   npm i -S @mikro-orm/cli @mikro-orm/core @mikro-orm/migrations @mikro-orm/postgresql pg
 ```
 
-- updated postgresql to 13.2
-- reviewed mikro-orm website, seems to be active and getting ahead of typeorm
+- created a 'Post' entity that will become a table in mokreddit db
+- created successful migration after adjustments in pgAdmin for server port and roles
+- added code to create a post to verify workflow
 
-- created database on postgresql 'mokreddit' owned by 'postgres'
-
-```sql
-  CREATE ROLE gnm WITH
-    LOGIN
-    NOSUPERUSER
-    CREATEDB
-    CREATEROLE
-    INHERIT
-    NOREPLICATION
-    CONNECTION LIMIT -1
-    PASSWORD 'xxxxxx';
-  COMMENT ON ROLE gnm IS 'this will be the db owner for the mokreddit db';
-```
+-
