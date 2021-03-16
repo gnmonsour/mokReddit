@@ -26,4 +26,32 @@ export class PostResolver {
     await em.persistAndFlush(newPost);
     return newPost;
   }
+
+  @Mutation(() => Post, { nullable: true })
+  async updatePost(
+    @Arg('id') id: number,
+    @Arg('title', () => String) title: string,
+    @Ctx() { em }: ConnContext
+  ): Promise<Post | null> {
+    const currPost = await em.findOne(Post, { id });
+    if (!currPost) return null;
+    if (typeof title !== undefined) {
+      currPost.title = title;
+      await em.persistAndFlush(currPost);
+    }
+    return currPost;
+  }
+
+  @Mutation(() => Boolean)
+  async deletePost(
+    @Arg('id', () => Int) id: number,
+    @Ctx() { em }: ConnContext
+  ): Promise<boolean> {
+    try {
+      await em.nativeDelete(Post, { id });
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
 }

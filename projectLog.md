@@ -80,4 +80,4 @@ GOTCHA - Avoid side effects in development
 - updated the Post entity to ensure qraphql types are defined with @Field() decorator
 - installed the 'reflect-metadata' package for graphQL messages and type handling
 
--
+- added CRUD to the post resolver and tested with success on each
