@@ -70,3 +70,14 @@ GOTCHA - Avoid side effects in development
 - added ApolloServer and configured it with 'buildSchema' from 'type-graphql'
 - added a resolver for the schema for a simple setup and verification
 - seeing a lot of decorators
+- added a 'Post' resolver
+- added types.ts for a type to use in 'Post' resolver
+  - used as connection context for queries destructured it as 'em'
+- added the Query decorator defining a Post array return
+- added the get posts query that returns a promise
+- added the PostResolver to the ApolloServer schema
+- joined the connection context from the orm to the ApolloServer
+- updated the Post entity to ensure qraphql types are defined with @Field() decorator
+- installed the 'reflect-metadata' package for graphQL messages and type handling
+
+-
